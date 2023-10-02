@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boleto Simulado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .boleto {
+            width: 600px;
+            margin: 20px auto;
+            border: 1px solid #000;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .boleto h1 {
+            text-align: center;
+        }
+
+        .info-pagador {
+            margin-top: 20px;
+        }
+
+        .info-pagador p {
+            margin: 5px 0;
+        }
+
+        .info-beneficiario {
+            margin-top: 20px;
+        }
+
+        .info-beneficiario p {
+            margin: 5px 0;
+        }
+
+        .linha-digitavel {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .codigo-barras {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="boleto">
+        <h1>Boleto Simulado</h1>
+        <div class="info-pagador">
+            <p>Nome do Pagador: Fulano de Tal</p>
+            <p>CPF/CNPJ do Pagador: 123.456.789-00</p>
+            <p>Endereço do Pagador: Rua do Pagador, 123</p>
+        </div>
+        <div class="info-beneficiario">
+            <p>Nome do Beneficiário: Empresa Exemplo</p>
+            <p>CPF/CNPJ do Beneficiário: 987.654.321-00</p>
+            <p>Endereço do Beneficiário: Av. do Beneficiário, 456</p>
+        </div>
+        <div class="linha-digitavel">
+            <p>Linha Digitável: 1234 5678 9012 3456 7890 12345 67890 123456 78901 234567</p>
+        </div>
+        <div class="codigo-barras">
+            <img src="codigo_barras.png" alt="Código de Barras">
+        </div>
+    </div>
+</body>
+</html>

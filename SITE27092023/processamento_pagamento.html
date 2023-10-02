@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+
+    h1 {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    button[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #555;
+    }
+</style>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Processar Pagamento</title>
+    <!-- Inclua a biblioteca Firebase JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-database.js"></script>
+</head>
+<body>
+    <h1>Formulário de Pagamento</h1>
+    <form id="form-pagamento">
+        <label for="nome_cliente">Nome do Cliente:</label>
+        <input type="text" id="nome_cliente" name="nome_cliente" required><br>
+
+        <label for="numero_cartao">Número do Cartão:</label>
+        <input type="text" id="numero_cartao" name="numero_cartao" required><br>
+
+        <label for="valor_compra">Valor da Compra:</label>
+        <input type="text" id="valor_compra" name="valor_compra" required><br>
+
+        <button type="submit">Processar Pagamento</button>
+    </form>
+
+    <!-- Configuração do Firebase -->
+    <script>
+        const apiKey: "AIzaSyD5N9oduQ5wcODYq6xPjSLSkQdEGhZc0Yw",
+        authDomain: "aula2-66620.firebaseapp.com",
+        databaseURL: "https://aula2-66620-default-rtdb.firebaseio.com",
+        projectId: "aula2-66620",
+        storageBucket: "aula2-66620.appspot.com",
+        messagingSenderId: "264621840710",
+        appId: "1:264621840710:web:88b4cff6b8a5fc54aeed47"
+  };
+
+        // Inicialize o Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Referência ao Realtime Database
+        var database = firebase.database();
+
+        // Manipular envio do formulário
+        document.getElementById('form-pagamento').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Coletar os dados do formulário
+            var nomeCliente = document.getElementById('nome_cliente').value;
+            var numeroCartao = document.getElementById('numero_cartao').value;
+            var valorCompra = document.getElementById('valor_compra').value;
+
+            // Validação simples (você deve implementar validações mais rigorosas em um ambiente de produção)
+            if (!nomeCliente || !numeroCartao || !valorCompra) {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+
+            // Simulação de processamento de pagamento bem-sucedido
+            // Aqui, você pode inserir os dados de pagamento no Firebase Realtime Database
+            var pagamentoData = {
+                nome_cliente: nomeCliente,
+                numero_cartao: numeroCartao,
+                valor_compra: valorCompra,
+                data_hora: new Date().toISOString()
+            };
+
+            // Enviar dados para o Firebase
+            database.ref('pagamentos').push(pagamentoData)
+                .then(function () {
+                    alert("Pagamento realizado com sucesso!");
+                })
+                .catch(function (error) {
+                    console.error("Erro ao processar pagamento:", error);
+                });
+        });
+    </script>
+</body>
+</html>

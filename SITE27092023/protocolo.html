@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo de Compra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .produto {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .endereco-entrega {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .resumo-compra {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .total {
+            font-weight: bold;
+        }
+
+        .botao-finalizar {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Protocolo de Compra</h1>
+
+        <!-- Informações do Produto -->
+        <div class="produto">
+            <h2>Produto: Caneta Especial</h2>
+            <p>Descrição: Uma caneta especial para escrita suave.</p>
+            <p>Preço: R$ 10,00</p>
+        </div>
+
+        <!-- Informações de Entrega -->
+        <div class="endereco-entrega">
+            <h2>Endereço de Entrega</h2>
+            <p>Nome: João da Silva</p>
+            <p>Endereço: Rua das Flores, 123</p>
+            <p>Cidade: São Paulo</p>
+            <p>CEP: 12345-678</p>
+        </div>
+
+        <!-- Resumo da Compra -->
+        <div class="resumo-compra">
+            <h2>Resumo da Compra</h2>
+            <p>Subtotal: R$ 10,00</p>
+            <p>Frete: R$ 5,00</p>
+            <p class="total">Total: R$ 15,00</p>
+        </div>
+
+        <!-- Botão de Finalizar Compra -->
+        <<button class="imprimir" onclick="window.print()">Imprimir</button>
+
+    </div>
+</body>
+</html>

@@ -9,20 +9,23 @@ const firebaseConfig = {
   };
   firebase.initializeApp(firebaseConfig);
 
-// Quando o formulário for enviado
-$("#formulario").submit(function(event) {
-    event.preventDefault();
-
-    var email = $("#email").val();
-    var password = $("#password").val();
-
-    // Autenticar usuário com o Firebase
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            alert("Autenticado com sucesso!");
-            window.location.href = "nomedapaginadotime.html"; // Altere para o nome do arquivo desejado
-        })
-        .catch((error) => {
-            alert("Erro ao autenticar: " + error.message);
-        });
-});
+    $("#formulario").submit(function(event) {
+        event.preventDefault();
+    
+        var email = $("#email").val();
+        var password = $("#password").val();
+        var nome = $("#nome").val(); // Capturar o valor do campo de nome
+        var endereco = $("#endereco").val(); // Capturar o valor do campo de endereço
+    
+        // Autenticar usuário com o Firebase
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                alert("Autenticado com sucesso!");
+    
+                // Redirecionar o usuário para a página "galeria" após a autenticação bem-sucedida
+                window.location.href = "galeria";
+            })
+            .catch((error) => {
+                alert("Erro ao autenticar: " + error.message);
+            });
+    });

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loja de Materiais Escolares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .product {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .product img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        .cart {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px;
+        }
+
+        .add-to-cart {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .add-to-cart:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Loja de Materiais Escolares</h1>
+    </header>
+
+    <!-- Navegação -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="MATERIAS.html">Materiais Escolares</a></li>
+            <li><a href="livros.html">Livros</a></li>
+            <li><a href="Serviços.html">Serviços Educacionais</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+        </ul>
+    </nav>
+
+    <section class="products">
+        <div class="product">
+            <img src="lapis.jpg" alt="Lápis">
+            <h2>Lápis</h2>
+            <p>Preço: R$ 1.00</p>
+            <button class="add-to-cart">Adicionar ao Carrinho</button>
+        </div>
+
+        <!-- Adicione mais produtos aqui -->
+        <div class="product">
+            <img src="borracha.jpg" alt="Borracha">
+            <h2>Borracha</h2>
+            <p>Preço: R$ 0.50</p>
+            <button class="add-to-cart">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product">
+            <img src="caderno.jpg" alt="Caderno">
+            <h2>Caderno</h2>
+            <p>Preço: R$ 5.00</p>
+            <button class="add-to-cart">Adicionar ao Carrinho</button>
+        </div>
+    </section>
+
+    <section class="cart">
+        <h2>Carrinho de Compras</h2>
+        <ul class="cart-items">
+            <!-- Itens do carrinho aparecerão aqui -->
+        </ul>
+        <p>Total: R$ <span id="cart-total">0.00</span></p>
+        <!-- Botão para Finalizar Compra -->
+    <button id="checkout-button">Finalizar Compra</button>
+        
+    </section>
+             
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const addToCartButtons = document.querySelectorAll(".add-to-cart");
+            const cartItemsList = document.querySelector(".cart-items");
+            const cartTotal = document.getElementById("cart-total");
+            let total = 0;
+    
+            addToCartButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const product = button.parentElement;
+                    const productName = product.querySelector("h2").textContent;
+                    const productPrice = parseFloat(product.querySelector("p").textContent.replace("Preço: R$ ", ""));
+                    
+                    const cartItem = document.createElement("li");
+                    cartItem.textContent = `${productName} - R$ ${productPrice.toFixed(2)}`;
+                    cartItemsList.appendChild(cartItem);
+    
+                    total += productPrice;
+                    cartTotal.textContent = total.toFixed(2);
+                });
+            });
+    
+            // Evento de clique para o botão "Finalizar Compra"
+            const checkoutButton = document.getElementById("checkout-button");
+            checkoutButton.addEventListener("click", function() {
+                // Aqui você pode adicionar código para finalizar a compra, por exemplo, redirecionar o usuário para uma página de confirmação.
+                alert("Compra finalizada! Obrigado por sua compra!");
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            // Evento de clique para o botão "Finalizar Compra"
+            const checkoutButton = document.getElementById("checkout-button");
+            checkoutButton.addEventListener("click", function() {
+                // Redirecionar o usuário para "confirmacao.html"
+                window.location.href = "confirmacao.html";
+            });
+        });
+    </script>
+    
+</body>
+</html>

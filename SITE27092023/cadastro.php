@@ -14,18 +14,12 @@
                 e.preventDefault();
             }
         });
-
-        // Desabilitar a função de copiar
-        document.addEventListener('copy', function (e) {
-            e.preventDefault();
-            alert('Copiar texto não é permitido neste site.');
-        });
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro com Firebase</title>
-
+    
     <style>
         /* Estilos para o formulário de cadastro */
         body {
@@ -104,16 +98,13 @@
         <input type="password" id="password" required><br><br>
 
         <button type="submit">Cadastrar</button>
-        <p>Se você for cliente, <a href="login.html">clique aqui</a>.</p>
     </form>
-
-   
 
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
 
     <script>
-        const firebaseConfig = {
+        var firebaseConfig = {
      
      apiKey: "AIzaSyD5N9oduQ5wcODYq6xPjSLSkQdEGhZc0Yw",
      authDomain: "aula2-66620.firebaseapp.com",
@@ -149,7 +140,7 @@
                         console.log("Perfil do usuário atualizado com sucesso.");
                         
                         // Redirecionar para a página de login após o cadastro
-                        window.location.href = "login.html"; // Substitua "login.html" pelo nome da sua página de login
+                        window.location.href = "index.html"; // Substitua "login.html" pelo nome da sua página de login
                     }).catch(function(error) {
                         console.error("Erro ao atualizar o perfil do usuário:", error);
                     });

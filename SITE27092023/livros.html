@@ -103,20 +103,21 @@
 
     <nav>
         <ul>
-            <<li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="MATERIAS.html">Materiais Escolares</a></li>
             <li><a href="livros.html">Livros</a></li>
-            <li><a href="Serviços.html">Serviços Educacionais</a></li>
+            <li><a href="sobre.html">Serviços Educacionais</a></li>
             <li><a href="sobre.html">Sobre Nós</a></li>
             <li><a href="contato.html">Contato</a></li>
             <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
         </ul>
     </nav>
 
     <section id="content">
         <h2>Livros</h2>
         <div class="search-form">
-            <form action="#" method="post">
+            <form action="#" method="post" id="search-form">
                 <label for="search-title">Título do Livro:</label>
                 <input type="text" id="search-title" class="search-input" name="search-title">
                 <label for="search-author">Autor:</label>
@@ -126,21 +127,61 @@
         </div>
 
         <ul class="book-list">
-            <!-- Exemplo de 20 livros -->
+            <!-- Exemplo de 10 livros -->
             <li class="book-item">
-                <span class="book-title">Título do Livro 1</span><br>
-                Autor do Livro 1
+                <span class="book-title">Livro 1</span><br>
+                Autor 1
             </li>
             <li class="book-item">
-                <span class="book-title">Título do Livro 2</span><br>
-                Autor do Livro 2
+                <span class="book-title">Livro 2</span><br>
+                Autor 2
             </li>
-            <!-- Adicione mais livros aqui -->
+            <li class="book-item">
+                <span class="book-title">Livro 3</span><br>
+                Autor 3
+            </li>
+            <li class="book-item">
+                <span class="book-title">Livro 4</span><br>
+                Autor 4
+            </li>
+            <li class="book-item">
+                <span class="book-title">Livro 5</span><br>
+                Autor 5
+            </li>
+            <li class="book-item">
+                <span class="book-title">Livro 6</span><br>
+                Autor 6
+            </li>
+            <li class="book-item">
+                <span class="book-title">Livro 7</span><br>
+                Autor 7
+            </li>
+            <li class="book-item">
+                <span class="book-title">Livro 8</span><br>
+                Autor 8
+            </li>
+            <li class="book-item">
+                <span class="book-title">Livro 9</span><br>
+                Autor 9
+            </li>
+            <li class="book-item">
+                <span class="book-title">Livro 10</span><br>
+                Autor 10
+            </li>
         </ul>
+        
+        <div id="search-result" style="display: none;"></div>
     </section>
 
     <footer>
         <p>© 2023 Escola & Livros</p>
     </footer>
-</body>
-</html>
+
+    <script>
+        // Função para manipular o formulário de pesquisa
+        document.getElementById("search-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Obter valores de pesquisa
+            const title = document.getElementById("search-title").value.toLowerCase();
+           

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras - Materiais Escolares</title>
+    <style>
+        /* Reset de estilos padrão */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo para o corpo da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        /* Estilo para o cabeçalho */
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Estilo para o título do cabeçalho */
+        h1 {
+            font-size: 24px;
+        }
+
+        /* Estilo para os containers */
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilo para os campos de pagamento */
+        #info_boleto, #info_cartao {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: none;
+        }
+
+        /* Estilo para os rótulos dos campos */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        /* Estilo para os campos de entrada de texto */
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        /* Estilo para o botão de envio */
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Carrinho de Compras - Materiais Escolares</h1>
+    </header>
+    <div class="container">
+        <!-- Seu conteúdo de produtos e carrinho aqui... -->
+    </div>
+
+    <!-- Formulário de pagamento -->
+    <div class="container">
+        <h2>Opções de Pagamento</h2>
+        <form action="boleto.html" method="post">
+            <label for="opcao_pagamento">Escolha a forma de pagamento:</label>
+            <select id="opcao_pagamento" name="opcao_pagamento">
+                <option value="boleto">Boleto</option>
+                <option value="cartao_credito">Cartão de Crédito</option>
+            </select>
+
+            <!-- Informações do boleto fictício (oculto por padrão) -->
+            <div id="info_boleto">
+                <p>Seu boleto:</p>
+                <img src="Boleto.webp" alt="Boleto Bancário">
+                <!-- Aqui você pode adicionar um elemento <img> ou <object> para exibir o boleto gerado -->
+            </div>
+
+            <!-- Informações do cartão de crédito (oculto por padrão) -->
+            <div id="info_cartao">
+                <p>Preencha os dados do cartão de crédito:</p>
+                <label for="numero_cartao">Número do Cartão:</label>
+                <input type="text" id="numero_cartao" name="numero_cartao"><br>
+                <label for="nome_cartao">Nome no Cartão:</label>
+                <input type="text" id="nome_cartao" name="nome_cartao"><br>
+                <label for="validade_cartao">Validade:</label>
+                <input type="text" id="validade_cartao" name="validade_cartao"><br>
+            </div>
+
+            <input type="submit" value="Finalizar Pagamento">
+        </form>
+    </div>
+
+    <script>
+        // Script para mostrar/ocultar campos de acordo com a opção de pagamento selecionada
+        const opcaoPagamento = document.getElementById('opcao_pagamento');
+        const infoBoleto = document.getElementById('info_boleto');
+        const infoCartao = document.getElementById('info_cartao');
+
+        opcaoPagamento.addEventListener('change', function () {
+            if (opcaoPagamento.value === 'boleto') {
+                infoBoleto.style.display = 'none';
+                infoCartao.style.display = 'none';
+            } else if (opcaoPagamento.value === 'cartao_credito') {
+                infoBoleto.style.display = 'none';
+                infoCartao.style.display = 'block';
+            } else {
+                infoBoleto.style.display = 'none';
+                infoCartao.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

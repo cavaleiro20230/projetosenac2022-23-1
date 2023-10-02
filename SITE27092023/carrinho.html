@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras - Materiais Escolares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .produto {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .produto img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-right: 10px;
+        }
+
+        .produto .descricao {
+            flex-grow: 1;
+        }
+
+        .produto .descricao h2 {
+            margin: 0;
+        }
+
+        .produto .descricao p {
+            margin: 5px 0;
+        }
+
+        .produto .preco {
+            font-weight: bold;
+        }
+
+        .carrinho {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .carrinho h2 {
+            text-align: center;
+        }
+
+        .carrinho .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .carrinho .item img {
+            max-width: 50px;
+            max-height: 50px;
+            margin-right: 10px;
+        }
+
+        .carrinho .item .descricao {
+            flex-grow: 1;
+        }
+
+        .carrinho .item .descricao p {
+            margin: 0;
+        }
+
+        .carrinho .item .preco {
+            font-weight: bold;
+        }
+
+        .total {
+            text-align: right;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Carrinho de Compras - Materiais Escolares</h1>
+    </header>
+    <div class="container">
+        <div class="produto">
+            <img src="caneta.jpg" alt="Caneta">
+            <div class="descricao">
+                <h2>Caneta Azul</h2>
+                <p>Caneta azul de qualidade.</p>
+                <p>Quantidade: 1 unidade</p>
+            </div>
+            <div class="preco">R$ 1.99</div>
+        </div>
+        <div class="produto">
+            <img src="caderno.jpg" alt="Caderno">
+            <div class="descricao">
+                <h2>Caderno Quadriculado</h2>
+                <p>Caderno com páginas quadriculadas.</p>
+                <p>Quantidade: 3 unidades</p>
+            </div>
+            <div class="preco">R$ 5.99 cada</div>
+        </div>
+        <div class="carrinho">
+            <h2>Itens no Carrinho</h2>
+            <div class="item">
+                <img src="caneta.jpg" alt="Caneta">
+                <div class="descricao">
+                    <h2>Caneta Azul</h2>
+                    <p>Quantidade: 1 unidade</p>
+                </div>
+                <div class="preco">R$ 1.99</div>
+            </div>
+            <div class="item">
+                <img src="caderno.jpg" alt="Caderno">
+                <div class="descricao">
+                    <h2>Caderno Quadriculado</h2>
+                    <p>Quantidade: 3 unidades</p>
+                </div>
+                <div class="preco">R$ 5.99 cada</div>
+            </div>
+            <div class="total">Total: R$ 19.96</div>
+        </div>
+    </div>
+    <div class="container" style="text-align: center;">
+        <button onclick="location.href='pagamento.html'">Ir para a forma de pagamento</button>
+    </div>
+</body>
+</html>

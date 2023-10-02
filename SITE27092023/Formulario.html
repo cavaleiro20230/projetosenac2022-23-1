@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Formulário de Cadastro</h1>
+<form id="cadastroForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" required>
+    <br>
+    <label for="endereço">Endereço:</label>
+    <input type="text" id="endereço" required>
+    <br>
+    <label for="cep">CEP:</label>
+    <input type="text" id="cep" required>
+    <br>
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" required>
+    <br>
+    <!-- Adicione um ID ao botão "Cadastrar" -->
+    <button type="submit" id="cadastrar-btn">Cadastrar</button>
+</form>
+
+<script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
+<script>
+    // Adicione aqui as suas credenciais do Firebase
+    var firebaseConfig = {
+    apiKey: "AIzaSyD5N9oduQ5wcODYq6xPjSLSkQdEGhZc0Yw",
+    authDomain: "aula2-66620.firebaseapp.com",
+    databaseURL: "https://aula2-66620-default-rtdb.firebaseio.com",
+    projectId: "aula2-66620",
+    storageBucket: "aula2-66620.appspot.com",
+    messagingSenderId: "264621840710",
+    appId: "1:264621840710:web:88b4cff6b8a5fc54aeed47"
+  };
+
+    // Inicialize o Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Obtém uma referência para o Realtime Database
+    var database = firebase.database();
+
+    // Registre o evento de submit do formulário
+    document.getElementById('cadastroForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Impede o comportamento padrão do formulário
+
+        // Obtém os valores dos campos do formulário
+        var nome = document.getElementById('nome').value;
+        var endereço = document.getElementById('endereço').value;
+        var cep = document.getElementById('cep').value;
+        var telefone = document.getElementById('telefone').value;
+
+        // Cria um novo registro no Realtime Database
+        database.ref('cadastros').push({
+            nome: nome,
+            endereço: endereço,
+            cep: cep,
+            telefone: telefone
+        })
+        .then(function () {
+            // Limpa os campos do formulário
+            document.getElementById('nome').value = '';
+            document.getElementById('endereço').value = '';
+            document.getElementById('cep').value = '';
+            document.getElementById('telefone').value = '';
+
+            alert('Cadastro realizado com sucesso!');
+            // Redireciona para carrinho.html após o cadastro bem-sucedido
+            window.location.href = "compras.html";
+        })
+        .catch(function (error) {
+            // Trate qualquer erro que possa ocorrer durante o cadastro
+            console.error('Erro ao cadastrar:', error);
+        });
+    });
+</script>
+</body>
+</html>
